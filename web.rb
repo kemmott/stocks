@@ -10,9 +10,9 @@ end
 get '/stocks/:symbol' do
     resp = RestClient.get("http://www.google.com/ig/api?stock=#{params[:symbol]}")
     doc = Nokogiri::XML(resp)
-    cof_price = {
+    stock_price = {
     	:symbol=>"#{doc.css('symbol')[0].attributes['data'].value}",
     	:price=>"#{doc.css('last')[0].attributes['data'].value}"
     }
-    JSON.pretty_generate(cof_price)
+    JSON.pretty_generate(stock_price)
 end
