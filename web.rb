@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'rest-client'
+require 'nokogiri'
 require 'json'
 
 get '/' do
